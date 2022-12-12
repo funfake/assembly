@@ -57,7 +57,7 @@ nasm -f {elf32 | elf64} -o {output file} {input file}
 ```
 Don't forget to create the executable !
 ```
-ld -m elf_i386 -o hello_world.o -o hello_world
+ld -m elf_i386 -o hello_world hello_world.o
 ```
 And run
 ```
