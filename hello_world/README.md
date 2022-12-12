@@ -1,6 +1,7 @@
 # ASM x86
 
 ## Resources
+- [x86 Assembly Crash Course](https://www.youtube.com/watch?v=75gBFiFtAb8)
 - [Video: HelloWorld in x86 assembly by John Hammond](https://www.youtube.com/watch?v=HgEGAaYdABA)
 - [Video: Assembly Language in 100 Seconds](https://www.youtube.com/watch?v=4gwYkEK0gOk)
 - [Registers in x86(64) assembly](https://www.cs.uaf.edu/2017/fall/cs301/lecture/09_11_registers.html#:~:text=rax%20is%20the%2064%2Dbit,processors%20with%20the%2080386%20CPU.)

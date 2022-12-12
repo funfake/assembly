@@ -11,11 +11,11 @@
 ; Define printf as an external function
 extern	printf
 
-SECTION .data
+section .data
     msg:	db "Hello world", 0 ; Zero is Null terminator 
     fmt:    db "%s", 10, 0 ; printf format string follow by a newline(10) and a null terminator(0), "\n",'0'
 
-SECTION .text
+section .text
     global main
 
     main:
