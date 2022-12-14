@@ -1,0 +1,35 @@
+     1                                  ; leaverng.asm
+     2                                  ;
+     3                                  ; Author: ECOAR professor
+     4                                  ; Date: 14-Dec-2022
+     5                                  ;
+     6                                  ; C prototype: char* leaverng(char* s, char a, char b);
+     7                                  ; a < b: characters outside a..b range are removed from the string
+     8                                  
+     9                                  section .text:
+    10                                      global leaverng
+    11                                  
+    12                                      leaverng:
+    13 00000000 55                              push    ebp             ; save caller's frame pointer
+    14 00000001 89E5                            mov     ebp, esp        ; set frame pointer for argument access
+    15                                  
+    16 00000003 8B4D08                          mov     ecx, [ebp+8]    ; source ptr
+    17 00000006 89CA                            mov     edx, ecx        ; dest ptr
+    18                                  
+    19                                      next_char:
+    20 00000008 8A01                            mov     al, [ecx]       ; load a character
+    21 0000000A 41                              inc     ecx             ; advance src pointer
+    22 0000000B 84C0                            test    al,al           ; check for trailing 0
+    23 0000000D 740A                            jz      finish
+    24 0000000F 3A450C                          cmp     al, [ebp+12]    ; compare with arg. a
+    25 00000012 72F4                            jb      next_char       ; below a -> don't copy
+    26 00000014 3A4510                          cmp     al, [ebp+16]    ; compare with arg. b
+    27 00000017 77EF                            ja      next_char       ; above b -> don't copy
+    28                                  
+    29                                      finish:
+    30 00000019 8802                            mov     [edx], al       ; put trailing 0 at the current end of
+    31 0000001B 8B4508                          mov     eax, [ebp+8]    ; return argument as function value
+    32 0000001E 5D                              pop     ebp             ; restore
+    33 0000001F C3                              ret
+    34                                  
+    35                                  
