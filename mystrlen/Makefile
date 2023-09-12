@@ -1,12 +1,12 @@
-EXEFILE	= leaverange
-OBJECTS = leaverange.o rng.o
+EXEFILE	= mainstrlen
+OBJECTS = main.o mystrlen.o
 CCFMT = -m32 
 NASMFMT = -f elf32
 CCOPT = -c -ggdb -O0
 NASMOPT = -w+all
 
 .c.o:
-	gcc $(CCFMT) $(CCOPT) $<
+	cc $(CCFMT) $(CCOPT) $<
 
 .s.o:
 	nasm $(NASMFMT) $(NASMOPT) $< -l $*.lst

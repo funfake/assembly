@@ -27,5 +27,8 @@ section .text
         
         ; epilogue - no need to discard locals
         pop ebp             ; restore caller's frame pointer
-        ret                 ; return
+        ; now gracefully exit
+        mov eax, 0x1            ; syscall op number (1 is exit)
+        mov ebx, 0              ; return code (e.g. 0 as in a C program)
+        int 0x80                ; use syscall, with the required parameters in the right registers
 

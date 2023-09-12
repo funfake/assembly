@@ -13,6 +13,6 @@ section .text
         mov rax, 0x4                    ; move the number of operation (4 - write) to the eax register
         mov rbx, 1                      ; use stdout as our fd (file descriptor)
         mov rcx, _global_var            ; use the message as the buffer
-        mov rdx, 5     ; and supply the message length
+        mov rdx, 5                      ; and supply the message length
         int 0x80                        ; use syscall, with the required parameters in the right registers
         ret                             ; return (to C program)
